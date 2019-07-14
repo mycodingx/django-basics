@@ -59,7 +59,6 @@ INSTALLED_APPS = [
 ```
 
 * Now create a view for our first app in views.py file
-
 ```
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -68,4 +67,16 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello World!")
 ```
+
+* Now add view url to url.py file
+```
+from django.contrib import admin
+from django.urls import path
+from home import views
+urlpatterns = [
+    path('',views.index,name="index"),
+    path('admin/', admin.site.urls),
+]
+```
+
 
