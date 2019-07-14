@@ -58,3 +58,14 @@ INSTALLED_APPS = [
 ]
 ```
 
+* Now create a view for our first app in views.py file
+
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+# Create your views here.
+
+def index(request):
+    return HttpResponse("Hello World!")
+```
+
