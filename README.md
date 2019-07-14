@@ -10,6 +10,8 @@ How to install and setup your first Django project
 
 Install [Pycharm Community Edition](https://www.jetbrains.com/pycharm/download/#section=windows) and [Anaconda(optional)](https://www.anaconda.com/distribution/) before you follow the below given steps.
 
+### Setup and Run First Project
+
 Once you have downloaded and installed all the required tools follow the below given steps:
 
 * Craete a new project using Pycharm and setup your virtual environment using additional options.
@@ -27,11 +29,18 @@ pip install django
 ```
 
 * Now create a Django project using django-admin
+```
+django-admin startproject blog
+```
 
-```
-django-admin startproject first_project
-```
 * Now go into your directory which contains "manage.py" file and start your server 
 ```
 python manage.py runserver
+```
+
+### Create FIrst Django Plugable App
+
+Create your first plugable app uisng 
+```
+python manage.py startapp home
 ```
