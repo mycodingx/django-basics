@@ -31,3 +31,7 @@ pip install django
 ```
 django-admin startproject first_project
 ```
+* Now go into your directory which contains "manage.py" file and start your server 
+```
+python manage.py runserver
+```
