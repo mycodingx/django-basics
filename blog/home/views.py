@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from home.models import Topic,Webpage,AccessRecord
 # Create your views here.
 """
 def index(request):
@@ -7,6 +7,7 @@ def index(request):
 """
 
 def index(request):
-    data_dict = {'insert_data':"Hello from Django template tag"}
+    webpages_list = AccessRecord.objects.order_by('date')
+    data_dict = {'access_records':webpages_list}
     return render(request,'home/index.html',context=data_dict)
 

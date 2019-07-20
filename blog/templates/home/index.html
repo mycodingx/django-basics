@@ -7,11 +7,39 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<h1>Hello from index.html</h1>
-{{ insert_data }}
-<img src="{% static "images/banner.jpg" %}" alt="Banner">
+
+<div class="jumbotron text-center">
+    <h1>Django Level Two</h1>
+    <p>Here we are fetching data from database.</p>
+</div>
+<div class="container">
+    {% if access_records %}
+<table class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th>Site Name</th>
+        <th>Date Accessed</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for acc in access_records %}
+    <tr>
+    <td>{{ acc.name }}</td>
+    <td>{{ acc.date }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    {% else %}
+    <p>No records found.</p>
+    {% endif %}
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
