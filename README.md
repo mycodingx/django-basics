@@ -40,7 +40,7 @@ python manage.py runserver
 
 ### Create First Django Plugable App
 
-*Create your first plugable app uisng 
+* Create your first plugable app uisng 
 ```
 python manage.py startapp home
 ```
@@ -78,5 +78,45 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
+
+##Level Two
+
+Creating Model and getting data from database
+
+### Adding Models
+
+* First Create model class in the model.py class of your app folder and then run the "migrate" command
+```buildoutcfg
+python manage.py migrate
+```
+* Then run the "makemigrations" command for your python app
+```buildoutcfg
+python manage.py makemigrations home
+```
+* Now you have to create a superuser who can access the database using python admin panel
+```buildoutcfg
+python manage.py createsuperuser
+```
+
+### Using python faker library
+Fake library is used to populate your database with some dummy data automatically. If you are following this series then you can find "populate_home_app.py" file in the project base directory you can use that file to populate your database with dummy data.
+
+* Install Faker
+```buildoutcfg
+pip install faker
+```
+
+* Populate database with fake data
+```buildoutcfg
+python populate_home_app.py
+``` 
+
+### Step to fetch and display data in your HTML templates
+* **First**: In the views.py file we import any models that we will need to use.
+* **Second**: Use the view to query the model for data that we will need.
+* **Third**: Pass results from the model to the template.
+* **Fourth**: Edit the template so that it is ready to accept and display the data from the model.
+* **Fifth**: Map a URL to the view.
+
 
 
