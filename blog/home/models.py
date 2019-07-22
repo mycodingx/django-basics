@@ -20,8 +20,26 @@ class Webpage(models.Model):
 
 
 class AccessRecord(models.Model):
-    name = models.ForeignKey('Webpage',on_delete=models.CASCADE,)
+    name = models.ForeignKey('Webpage', on_delete=models.CASCADE, )
     date = models.DateField()
 
     def __str__(self):
         return str(self.date)
+
+
+class PostCategory(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return str(self.name)
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=255, unique=True)
+    body = models.TextField(null=True)
+    image = models.ImageField(upload_to='images/');
+    category = models.ForeignKey('PostCategory', on_delete=models.CASCADE, )
+    date = models.DateField()
+
+    def __str__(self):
+        return str(self.title)
