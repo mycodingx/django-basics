@@ -43,3 +43,12 @@ class Post(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(null=True)
+    address = models.TextField(null=True)
+
+    def __str__(self):
+        return str(self.name)
